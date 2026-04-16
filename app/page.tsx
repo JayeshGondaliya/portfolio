@@ -48,7 +48,7 @@ export default function Home() {
           <Resume />
         </section>
         <section id="certificate">
-          <Certificates />
+          {/* <Certificates /> */}
         </section>
         <section id="connect">
           <Contact />
