@@ -9,9 +9,9 @@ import { Navigation, Pagination, Autoplay, Mousewheel } from "swiper/modules"
 import type { Swiper as SwiperType } from "swiper"
 
 // IMPORTANT: These CSS imports are REQUIRED for Swiper to work properly
-// import "swiper/css"
-// import "swiper/css/navigation"
-// import "swiper/css/pagination"
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
 const projects = [
   {
