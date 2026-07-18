@@ -6,25 +6,25 @@ import { useState } from "react"
 
 const experience = [
   {
-    role: "Full-Stack Developer",
+    role: "MERN & Python Developer Intern",
     company: "Sahil Infotech",
-    period: "January 2025 - July 2025",
+    period: "February 2025 - July 2025",
     description:
-      "Worked as Full-Stack Developer handling web application development, backend APIs, database management, and integrating frontend with backend using modern technologies like Node.js, React, and MongoDB.",
+      "Full Stack Developer Intern at Sahil Infotech, gaining hands-on experience in frontend development, backend development, and Python fundamentals.",
   },
 ]
 
 const education = [
   {
-    degree: "Master of Computer Applications (MCA) (In Progress)",
-    institution: "Sarvajanik College of Engineering and Technology | Surat",
-    period: "2025 - 2027",
-    detail: "CGPA: 9.72 / 10",
+    degree: "Master of Computer Applications (MCA) - Pursuing",
+    institution: "Sarvajanik College of Engineering & Technology | Surat",
+    period: "July 2025 - Present",
+    detail: "",
   },
   {
-    degree: "Bachelor of Computer Applications (BCA) Complete",
+    degree: "Bachelor of Computer Applications (BCA) - Completed",
     institution: "Veer Narmad South Gujarat University | Surat",
-    period: "2022 - 2025",
+    period: "July 2022 - February 2025",
     detail: "CGPA: 8.52 / 10",
   },
 ]
@@ -33,7 +33,6 @@ export default function Resume() {
   const [showPreview, setShowPreview] = useState(false)
 
   const handleDownloadResume = () => {
-    // Download PDF instead of JPG
     const link = document.createElement("a")
     link.href = "/images/JAYESHGONDALIYA.pdf"
     link.download = "Jayesh_Gondaliya_Resume.pdf"
@@ -118,9 +117,7 @@ export default function Resume() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Resume</span>
               </h2>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed font-medium">
-                Passionate AI & ML Developer with hands-on experience in Python, Machine Learning, and NLP. Skilled in
-                developing practical AI projects and building intelligent, data-driven solutions that solve real-world
-                problems efficiently.
+                MERN Stack Developer with experience in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Skilled in REST APIs, authentication, and database management, with a passion for building scalable and user-friendly applications.
               </p>
               <div className="flex flex-wrap gap-4">
                 <motion.button
@@ -220,6 +217,35 @@ export default function Resume() {
               </div>
             </div>
           </div>
+
+          {/* Skills Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <h3 className="text-2xl font-bold text-gray-400 mb-6">Skills</h3>
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="bg-gradient-to-br from-gray-900/40 to-black border-2 border-gray-700/30 rounded-xl p-5 hover:border-gray-500 transition-all">
+                <h4 className="text-white font-bold mb-2">Languages</h4>
+                <p className="text-gray-300 text-sm">JavaScript, Java, Python, C, C++</p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-900/40 to-black border-2 border-gray-700/30 rounded-xl p-5 hover:border-gray-500 transition-all">
+                <h4 className="text-white font-bold mb-2">Frameworks & Libraries</h4>
+                <p className="text-gray-300 text-sm">React.js, Node.js, Express.js, Bootstrap, Socket.IO, JWT Authentication</p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-900/40 to-black border-2 border-gray-700/30 rounded-xl p-5 hover:border-gray-500 transition-all">
+                <h4 className="text-white font-bold mb-2">Tools</h4>
+                <p className="text-gray-300 text-sm">Git, GitHub, Postman, MongoDB Compass</p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-900/40 to-black border-2 border-gray-700/30 rounded-xl p-5 hover:border-gray-500 transition-all">
+                <h4 className="text-white font-bold mb-2">Databases</h4>
+                <p className="text-gray-300 text-sm">MongoDB, MySQL</p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
