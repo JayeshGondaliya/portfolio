@@ -1,4 +1,4 @@
-```tsx
+
 "use client"
 
 import { motion } from "framer-motion"
@@ -208,4 +208,101 @@ export default function Projects() {
                     className="group bg-gradient-to-br from-gray-900/40 to-black border border-gray-700/30 rounded-xl overflow-hidden hover:border-gray-500/50 transition-all duration-300 flex flex-col h-full relative backdrop-blur-sm"
                   >
                     {/* Project Icon */}
-                    <div className="bg-gradient-to-br from-gray-900/50 via-black to-gray
+                    <div className="bg-gradient-to-br from-gray-900/50 via-black to-gray-900/50 h-32 flex items-center justify-center text-5xl border-b border-gray-700/30">
+                      {project.image}
+                    </div>
+
+                    {/* Project Content */}
+                    <div className="p-5 flex flex-col flex-grow">
+                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gray-300 transition-colors duration-300 line-clamp-1">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-gray-400 text-sm mb-4 flex-grow leading-relaxed line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {project.tech.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-gray-900/50 border border-gray-700/50 text-gray-400 rounded text-xs font-medium transition-colors hover:border-gray-500"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+
+                        {project.tech.length > 3 && (
+                          <span className="px-2 py-1 bg-gray-900/50 border border-gray-700/50 text-gray-400 rounded text-xs font-medium">
+                            +{project.tech.length - 3}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Live Demo Button */}
+                      {project.status === "live" && project.liveLink ? (
+                        <motion.a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/30 text-green-400 hover:text-green-300 hover:border-green-500/60 transition-all duration-200 font-medium group/btn w-full"
+                        >
+                          <Globe
+                            size={16}
+                            className="group-hover/btn:rotate-12 transition-transform"
+                          />
+                          <span>Live Demo</span>
+                          <ExternalLink size={14} />
+                        </motion.a>
+                      ) : project.status === "github" && project.liveLink ? (
+                        /* GitHub Button - Backend Project */
+                        <motion.a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-700/30 to-gray-800/30 border border-gray-500/40 text-gray-300 hover:text-white hover:border-gray-400/70 transition-all duration-200 font-medium w-full"
+                        >
+                          <ExternalLink size={16} />
+                          <span>View on GitHub</span>
+                        </motion.a>
+                      ) : (
+                        /* Coming Soon Button */
+                        <motion.div
+                          className="relative w-full"
+                          animate={{ scale: [1, 1.02, 1] }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: "easeInOut",
+                          }}
+                        >
+                          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-600/20 to-orange-600/20 border border-yellow-500/30 text-yellow-400 w-full cursor-default">
+                            <Rocket size={16} />
+                            <span>Launching Soon</span>
+                            <Sparkles size={14} />
+                          </div>
+
+                          <div className="absolute -top-2 -right-2">
+                            <span className="relative flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
