@@ -192,7 +192,7 @@ export default function Projects() {
               watchOverflow={true}
               className="projects-slider !pb-12"
             >
-              {projects.map((project) => (
+             {[...projects].reverse().map((project) => (
                 <SwiperSlide key={project.id} className="!h-auto">
                   <motion.div
                     initial="hidden"
